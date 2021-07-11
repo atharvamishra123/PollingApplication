@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container" align="center">
+  <h2>Add Poll</h2>
+  <br>
+  <br>
+  <br>
+  <form action="" method="post">
+    {% csrf_token %}
+    {% for var in form %}
+      {{var.label_tag}} {{var}} {{var.errors|striptags}}<br><br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+{% endblock %}

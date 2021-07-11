@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container" align="center">
+    <h2>Login</h2>
+    <br>
+    <br>
+    <br>
+    <h2>Login</h2>
+    <br>
+    <br>
+    <br>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for fm in form %}
+        {{fm.label_tag}} {{fm}} {{fm.error|striptags}} <br><br>
+        {% endfor %}
+        <input type="submit" value="Login">
+    </form>
+    <br>
+    <div><a href="{% url 'sign_up' %}">New User Click Here To Register</a></div>
+</div>
+
+
+{% endblock %}

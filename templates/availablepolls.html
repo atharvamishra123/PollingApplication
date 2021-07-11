@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for var in pollquestion %}
+<h3>
+    {{ var.question }}
+</h3>
+<form action ="{% url 'allpolls' var.id %}" method="post">
+    {% csrf_token %}
+            <div class="list-group">
+                <label>
+                    <input type="radio" name="poll" value="option1">
+                    {{ var.option_one }}
+                </label> &nbsp;<br>
+                <label>
+                    <input type="radio" name="poll" value="option2">
+                    {{ var.option_two }}
+                </label> &nbsp;<br>
+                <label>
+                    <input type="radio" name="poll" value="option3">
+                    {{ var.option_three }}
+                </label> &nbsp;<br>
+                <label>
+                    <input type="radio" name="poll" value="option4">
+                    {{ var.option_four }}
+                </label> &nbsp;<br>
+            </div>
+            <br>
+            <input type ="submit" value ="Vote" class ="btn btn-success btn-lg btn-block mt-4" />
+</form>
+<hr>
+{% endfor %}
+{% endblock %}
